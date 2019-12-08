@@ -1,14 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-class LifecycleTest extends Component {
-  constructor(props) {
-    super(props);
-    console.log('LifecycleTest Constructor');
-  }
-  render() {
-    return <p>Hello!</p>;
-  }
-}
+import LifecycleTest from "./LifecycleTest";
 
 class App extends Component {
   renderLifecycleTest() {
