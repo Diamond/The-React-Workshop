@@ -1,30 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-const url = `https://images.unsplash.com/photo-1562051036-e0eea191d42f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80` 
+ReactDOM.render(<App />, document.getElementById('root'));
 
-const useToggle = initialValue => {
-  const [value, setValue] = React.useState(initialValue);
-
-  const toggle = () => setValue(prevValue => !prevValue);
-
-  return { value, toggle };
-};
-
-const Base = props => {
-  const { value, toggle } = useToggle(props.initialValue);
-
-  return (
-    <>
-      <div>
-        {value && (
-          <img style={{ width: 200 }} src={props.src} alt={props.alt} />
-        )}
-      </div>
-
-      <button onClick={toggle}>toggle</button>
-    </>
-  );
-};
-
-ReactDOM.render(<Base src={url}  />, document.getElementById('root'));
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
