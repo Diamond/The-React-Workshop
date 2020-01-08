@@ -1,47 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-const App = props => {
-  const [loggedIn, setLoggedIn] = React.useState(false);
+ReactDOM.render(<App />, document.getElementById('root'));
 
-  React.useEffect(() => {
-    const loggedInFromLocalStorage = localStorage.getItem("loggedIn");
-
-    if (JSON.parse(loggedInFromLocalStorage) === true) {
-      setLoggedIn(true);
-    }
-  }, []);
-
-  React.useEffect(() => {
-    localStorage.setItem("loggedIn", loggedIn);
-  }, [loggedIn]);
-
-  if (loggedIn) {
-    return (
-      <>
-        {`Welcome back, ${props.name} `}
-        <button
-          onClick={() => {
-            setLoggedIn(false);
-          }}
-        >
-          Log out
-        </button>
-      </>
-    );
-  }
-
-  return (
-    <>
-      <button
-        onClick={() => {
-          setLoggedIn(true);
-        }}
-      >
-        Log in
-      </button>
-    </>
-  );
-};
-
-ReactDOM.render(<App name="Endre" />, document.getElementById("root"));
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
